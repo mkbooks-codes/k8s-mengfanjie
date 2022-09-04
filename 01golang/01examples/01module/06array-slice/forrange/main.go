@@ -12,7 +12,9 @@ func main() {
 	}
 	fmt.Printf("mySlice %+v\n", mySlice)
 
-	for index, _ := range mySlice {
+	// go vet
+	// for index, _ := range mySlice {
+	for index := range mySlice {
 		mySlice[index] *= 2
 	}
 	fmt.Printf("mySlice %+v\n", mySlice)
