@@ -1,4 +1,4 @@
-module github/mkbooks-codes/k8s-mengfanjie
+module github.com/mkbooks-codes/k8s-mengfanjie
 
 go 1.17
 
