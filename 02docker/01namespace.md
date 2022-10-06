@@ -136,7 +136,7 @@ root       42080   42079  0 18:19 pts/1    00:00:00 unshare -fn sleep 60
 root       42081   42080  0 18:19 pts/1    00:00:00 sleep 60
 cjx        42170   32973  0 18:19 pts/3    00:00:00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox sleep 60
 ```
-进入改进程所在 Namespace 查看网络配置，与主机不一致`sudo nsenter -t 42079 -n ip a`
+进入改进程所在 Namespace 查看网络配置，与主机不一致`sudo nsenter -t 42080 -n ip a`
 ```
 sudo nsenter -t 42080 -n ip a
 1: lo: <LOOPBACK> mtu 65536 qdisc noop state DOWN group default qlen 1000
