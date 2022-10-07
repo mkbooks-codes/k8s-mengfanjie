@@ -90,3 +90,8 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used. 121364.8 avail Mem
    4507 cjx       20   0 1125.5g 481848 208608 S  11.0   0.4  46:28.85 chrome       
   52435 cjx       20   0  702364   1160    648 R  10.3   0.0  11:28.43 busyloop
 ```
+# 删除
+```
+sudo apt install cgroup-tools
+sudo cgdelete cpu:cpudemo
+```
