@@ -41,6 +41,19 @@ ls: cannot open directory 'work/work/': Permission denied
 cjx@cjx-0004:~/overlayFS_test$ sudo ls work/work/
 
 ```
+```
+cjx@cjx-0004:~/overlayFS_test$ mount | grep '/home/cjx/overlayFS_test'
+overlay on /home/cjx/overlayFS_test/merged type overlay (rw,relatime,lowerdir=/home/cjx/overlayFS_test/lower,upperdir=/home/cjx/overlayFS_test/upper,workdir=/home/cjx/overlayFS_test/work)
+```
+## Delete merged file
+```shell
+cjx@cjx-0004:~/overlayFS_test$ rm -rf merged/
+rm: cannot remove 'merged/': Device or resource busy
+
+cjx@cjx-0004:~/overlayFS_test$ sudo umount /home/cjx/overlayFS_test/merged
+cjx@cjx-0004:~/overlayFS_test$ rm -rf merged/
+```
+
 # docker 文件系统
 ```
 cjx@cjx-0004:~/yamls$ docker inspect k8s_redis_redis-5c9986b94b-4ghx7_default_c91587b1-6c38-4d1f-bdb0-41bce72a5df4_0
