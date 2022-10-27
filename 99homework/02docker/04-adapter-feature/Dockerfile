@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.17-alpine AS build
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
@@ -6,17 +6,13 @@ ENV GO111MODULE=on \
     GOARCH=amd64 \
 	GOPROXY="https://goproxy.cn,direct"
 
-WORKDIR /root/cncamp
+WORKDIR /go/src/
 COPY main.go .
 
-RUN go mod init example.com/httpserver
-RUN go mod tidy
-RUN go build -o httpserver .
+RUN go mod init klb.com/adapter && go mod tidy && go build -o /tmp/adapter
 
-WORKDIR /opt/modules/httpserver
-RUN mkdir src .
 
-RUN cp /root/cncamp/httpserver ./src
+FROM scratch
+COPY --from=build /tmp/adapter /bin/adapter
 EXPOSE 8080
-
-CMD ["/opt/modules/httpserver/src/httpserver"]
+ENTRYPOINT ["/bin/adapter"]

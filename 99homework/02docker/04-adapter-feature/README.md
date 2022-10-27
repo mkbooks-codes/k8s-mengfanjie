@@ -1,17 +1,16 @@
 # 代码运行测试
 ```
-export VERSION=v0.0.0
 go run main.go
 ```
 ```
-curl -v localhost:8080/healthz -H "ttt:yyy"
+curl -v localhost:8080/feature -H 'Content-Type: application/json' -d '{}'
 ```
 # 镜像测试
 ```
-docker build -t cncamp/httpserver:v0.0.1 .
-docker run -d --name httpserver -p 9090:8080 -e VERSION=v0.0.1 cncamp/httpserver:v0.0.1
-docker logs -f httpserver
+docker build -t klb/adapter:v1 .
+docker run -d --name adapter -p 20000:8080 klb/adapter:v1
+docker logs -f adapter
 ```
 ```
-curl -v localhost:9090/healthz -H "ttt:yyy"
+curl -v localhost:20000/feature -H 'Content-Type: application/json' -d '{}'
 ```

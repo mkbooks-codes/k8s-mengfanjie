@@ -2,10 +2,7 @@ module github.com/mkbooks-codes/k8s-mengfanjie/01golang/02httpserver/01module/01
 
 go 1.17
 
-require (
-	github.com/gin-gonic/gin v1.8.1
-	github.com/thinkeridea/go-extend v1.3.2
-)
+require github.com/gin-gonic/gin v1.8.1
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
